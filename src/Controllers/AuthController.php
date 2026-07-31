@@ -12,6 +12,9 @@ use App\Core\FlashMessage;
  */
 final class AuthController extends Controller
 {
+    /**
+     * Affiche le formulaire de connexion (redirige si déjà connecté).
+     */
     public function showLogin(): string
     {
         if ($this->auth->check()) {
@@ -21,6 +24,9 @@ final class AuthController extends Controller
         return $this->render('auth/login');
     }
 
+    /**
+     * Traite la soumission du formulaire de connexion.
+     */
     public function login(): string
     {
         $this->verifyCsrf();
@@ -37,6 +43,9 @@ final class AuthController extends Controller
         return $this->render('auth/login', ['email' => $email]);
     }
 
+    /**
+     * Déconnecte l'utilisateur courant et revient à l'accueil.
+     */
     public function logout(): string
     {
         $this->auth->logout();

@@ -13,6 +13,9 @@ use App\Core\FlashMessage;
  */
 final class TrajetController extends Controller
 {
+    /**
+     * Liste tous les trajets, sans filtre de date ni de disponibilité.
+     */
     public function index(): string
     {
         $this->requireAdmin();
@@ -22,6 +25,9 @@ final class TrajetController extends Controller
         ]);
     }
 
+    /**
+     * Supprime n'importe quel trajet.
+     */
     public function destroy(int $id): string
     {
         $this->requireAdmin();

@@ -11,6 +11,9 @@ use App\Core\Controller;
  */
 final class DashboardController extends Controller
 {
+    /**
+     * Affiche les liens vers les différentes sections d'administration.
+     */
     public function index(): string
     {
         $this->requireAdmin();

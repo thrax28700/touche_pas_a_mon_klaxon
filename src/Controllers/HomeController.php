@@ -14,6 +14,9 @@ use App\Core\Controller;
  */
 final class HomeController extends Controller
 {
+    /**
+     * Affiche les trajets à venir ayant encore des places disponibles.
+     */
     public function index(): string
     {
         $trajets = App::trajets()->findAvailableUpcoming();

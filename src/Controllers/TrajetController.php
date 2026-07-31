@@ -16,6 +16,9 @@ use App\Validation\TrajetValidator;
  */
 final class TrajetController extends Controller
 {
+    /**
+     * Affiche le formulaire de création d'un trajet.
+     */
     public function create(): string
     {
         $this->requireAuth();
@@ -28,6 +31,9 @@ final class TrajetController extends Controller
         ]);
     }
 
+    /**
+     * Valide et enregistre un nouveau trajet proposé par l'utilisateur connecté.
+     */
     public function store(): string
     {
         $this->requireAuth();
@@ -65,6 +71,9 @@ final class TrajetController extends Controller
         $this->redirect('/');
     }
 
+    /**
+     * Affiche le formulaire de modification, réservé à l'auteur ou à l'admin.
+     */
     public function edit(int $id): string
     {
         $trajet = $this->findOrFail($id);
@@ -78,6 +87,9 @@ final class TrajetController extends Controller
         ]);
     }
 
+    /**
+     * Valide et applique la modification d'un trajet existant.
+     */
     public function update(int $id): string
     {
         $trajet = $this->findOrFail($id);
@@ -122,6 +134,9 @@ final class TrajetController extends Controller
         $this->redirect('/');
     }
 
+    /**
+     * Supprime un trajet, réservé à l'auteur ou à l'admin.
+     */
     public function destroy(int $id): string
     {
         $trajet = $this->findOrFail($id);

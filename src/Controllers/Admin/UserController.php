@@ -12,6 +12,9 @@ use App\Core\Controller;
  */
 final class UserController extends Controller
 {
+    /**
+     * Liste tous les utilisateurs importés du SIRH.
+     */
     public function index(): string
     {
         $this->requireAdmin();

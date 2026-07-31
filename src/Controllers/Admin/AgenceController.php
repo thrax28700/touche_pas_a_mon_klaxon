@@ -15,6 +15,9 @@ use App\Validation\AgenceValidator;
  */
 final class AgenceController extends Controller
 {
+    /**
+     * Liste toutes les agences.
+     */
     public function index(): string
     {
         $this->requireAdmin();
@@ -24,6 +27,9 @@ final class AgenceController extends Controller
         ]);
     }
 
+    /**
+     * Affiche le formulaire de création d'une agence.
+     */
     public function create(): string
     {
         $this->requireAdmin();
@@ -31,6 +37,9 @@ final class AgenceController extends Controller
         return $this->render('admin/agences/create', ['errors' => [], 'old' => []]);
     }
 
+    /**
+     * Valide et enregistre une nouvelle agence.
+     */
     public function store(): string
     {
         $this->requireAdmin();
@@ -53,6 +62,9 @@ final class AgenceController extends Controller
         $this->redirect('/admin/agences');
     }
 
+    /**
+     * Affiche le formulaire de modification d'une agence.
+     */
     public function edit(int $id): string
     {
         $this->requireAdmin();
@@ -61,6 +73,9 @@ final class AgenceController extends Controller
         return $this->render('admin/agences/edit', ['agence' => $agence, 'errors' => [], 'old' => []]);
     }
 
+    /**
+     * Valide et applique la modification d'une agence.
+     */
     public function update(int $id): string
     {
         $this->requireAdmin();
@@ -89,6 +104,9 @@ final class AgenceController extends Controller
         $this->redirect('/admin/agences');
     }
 
+    /**
+     * Supprime une agence, sauf si elle est encore référencée par un trajet.
+     */
     public function destroy(int $id): string
     {
         $this->requireAdmin();
