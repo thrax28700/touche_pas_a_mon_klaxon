@@ -1,0 +1,38 @@
+Modèle Logique de Données (MLD)
+================================
+
+AGENCES (
+    id            : INT UNSIGNED, AUTO_INCREMENT, PK
+    nom           : VARCHAR(100), NOT NULL, UNIQUE
+)
+
+UTILISATEURS (
+    id            : INT UNSIGNED, AUTO_INCREMENT, PK
+    nom           : VARCHAR(100), NOT NULL
+    prenom        : VARCHAR(100), NOT NULL
+    telephone     : VARCHAR(20), NOT NULL
+    email         : VARCHAR(150), NOT NULL, UNIQUE
+    mot_de_passe  : VARCHAR(255), NOT NULL   -- haché (password_hash / bcrypt)
+    role          : ENUM('employe', 'admin'), NOT NULL, DEFAULT 'employe'
+)
+
+TRAJETS (
+    id                      : INT UNSIGNED, AUTO_INCREMENT, PK
+    agence_depart_id        : INT UNSIGNED, NOT NULL, FK -> AGENCES(id)
+    agence_arrivee_id       : INT UNSIGNED, NOT NULL, FK -> AGENCES(id)
+    date_heure_depart       : DATETIME, NOT NULL
+    date_heure_arrivee      : DATETIME, NOT NULL
+    nb_places_total         : INT UNSIGNED, NOT NULL
+    nb_places_disponibles   : INT UNSIGNED, NOT NULL
+    utilisateur_id          : INT UNSIGNED, NOT NULL, FK -> UTILISATEURS(id)
+
+    CONTRAINTES :
+        agence_depart_id <> agence_arrivee_id
+        date_heure_arrivee > date_heure_depart
+        nb_places_disponibles <= nb_places_total
+)
+
+Cardinalités :
+    UTILISATEURS (1) ---- (0,n) TRAJETS        [utilisateur_id]
+    AGENCES      (1) ---- (0,n) TRAJETS        [agence_depart_id]
+    AGENCES      (1) ---- (0,n) TRAJETS        [agence_arrivee_id]
