@@ -1,0 +1,25 @@
+@import "variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-color: $body-bg;
+}
+
+.app-header {
+    background-color: $white;
+    border-color: $secondary !important;
+}
+
+.app-brand {
+    color: $secondary;
+}
+
+table thead {
+    background-color: $table-accent;
+    color: $white;
+
+    th {
+        color: $white;
+        border-color: $table-accent;
+    }
+}

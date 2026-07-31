@@ -1,0 +1,14 @@
+// Palette imposée par le brief. Ce fichier ne redéfinit QUE les variables
+// Bootstrap concernées, afin que les futurs sites du Comité d'entreprise
+// puissent réutiliser la même structure avec leur propre palette.
+
+$primary: #0074c7;   // Boutons principaux : Connexion, Créer un trajet
+$secondary: #384050;  // Header/footer, menu admin
+$success: #82b864;   // Modification, messages de succès
+$danger: #cd2c2e;    // Suppression, messages d'erreur
+$dark: #384050;
+$light: #f1f8fc;
+$body-bg: #f1f8fc;
+
+// Nuance foncée additionnelle utilisée pour l'en-tête des tableaux.
+$table-accent: #00497c;
