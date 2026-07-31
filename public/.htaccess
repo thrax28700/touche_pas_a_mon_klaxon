@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Sert directement les fichiers et dossiers existants (assets, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Toutes les autres requêtes passent par le contrôleur frontal
+RewriteRule ^ index.php [QSA,L]
