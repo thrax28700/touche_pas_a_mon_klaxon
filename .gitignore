@@ -3,7 +3,7 @@
 /tools/
 
 # Fichiers hors périmètre du dépôt (annexes brutes du sujet, autres devoirs)
-/téléchargement (4)/
+/téléchargement*/
 /Vaillant_Renaud_Planifier_le_developpement_d_un_site_de_vente.pdf
 .env
 public/assets/css/custom.css
