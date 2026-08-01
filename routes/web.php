@@ -29,4 +29,5 @@ $router->post('/admin/agences/:id', 'Admin\\AgenceController@update');
 $router->post('/admin/agences/:id/delete', 'Admin\\AgenceController@destroy');
 
 $router->get('/admin/trajets', 'Admin\\TrajetController@index');
+$router->get('/admin/trajets/export', 'Admin\\TrajetController@exportCsv');
 $router->post('/admin/trajets/:id/delete', 'Admin\\TrajetController@destroy');

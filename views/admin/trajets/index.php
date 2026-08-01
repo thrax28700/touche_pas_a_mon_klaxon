@@ -7,7 +7,10 @@ use App\Core\Csrf;
 /** @var list<array<string, mixed>> $trajets */
 ?>
 
-<h1 class="h3 mb-4">Trajets</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Trajets</h1>
+    <a href="/admin/trajets/export" class="btn btn-secondary">Exporter en CSV</a>
+</div>
 
 <div class="table-responsive">
     <table class="table table-bordered bg-white align-middle">
